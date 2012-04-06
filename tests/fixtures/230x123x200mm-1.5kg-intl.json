@@ -1,0 +1,37 @@
+{
+	"products":[{
+		"price":"94.5",
+		"group":"International Express Courier",
+		"name":"Int Express Pcl Zone D 1.5kg",
+		"promo_code":null,
+		"code":"ICPND1500",
+		"max_delivery_target":5,
+		"cms_code":"ICPND1500",
+		"signature_required":true,
+		"min_delivery_target":1,
+		"has_tracking":true
+	},{
+		"price":"45.5",
+		"group":"International Air",
+		"name":"Zone D AirPost Cust Pcl 1.5kg",
+		"promo_code":null,
+		"code":"IACND1500",
+		"max_delivery_target":10,
+		"cms_code":"IACND1500",
+		"signature_required":false,
+		"min_delivery_target":3,
+		"has_tracking":false
+	},{
+		"price":"41.0",
+		"group":"International Economy",
+		"name":"Zone D EconomyPost Pcl 1.5kg",
+		"promo_code":null,
+		"code":"IECND1500",
+		"max_delivery_target":25,
+		"cms_code":"IECND1500",
+		"signature_required":false,
+		"min_delivery_target":10,
+		"has_tracking":false
+	}],
+	"status":"success"
+}
