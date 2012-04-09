@@ -1,6 +1,6 @@
 <?php
 
-class NZPostRateFinderProductDomestic extends DataObject{
+class NZPostRateFinderProductDomestic extends DataObject implements IShippingProduct{
 	
 	static $db = array(
 		'size'=>'Text',
@@ -33,7 +33,23 @@ class NZPostRateFinderProductDomestic extends DataObject{
 		'NZPostRateFinderResponseDomestic' => 'NZPostRateFinderResponseDomestic'
 	);
 	
+	static $casting = array(
+		'Price' => 'Currency'
+	);
+	
 	public function requireTable() {
 		return false;
+	}
+	
+	public function getUID(){
+		return $this->code;
+	}
+	
+	public function getDescription(){
+		return $this->service_group_description . ' - ' . $this->speed_description;
+	}
+	
+	public function getPrice(){
+		return $this->cost;
 	}
 }
