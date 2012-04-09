@@ -28,9 +28,12 @@ class NZPostRateFinderAPIManager{
 			throw new Exception("An error occured when retrieving data about shipping fees");
 		}
 		if (isset($apiResponse["status"]) && $apiResponse["status"]== 'success'){
+			$shippingSession = ShippingProductSession::get();
 			$nzpostFinderResponse = new $responseClass();
 			foreach($apiResponse["products"] as $product){
-				$nzpostFinderResponse->products()->add(new $productClass($product));				
+				$NZPostRateFinderProduct = new $productClass($product);
+				$nzpostFinderResponse->products()->add($NZPostRateFinderProduct);
+				$shippingSession->addShippingProduct($NZPostRateFinderProduct);
 				//TODO Cache results
 			}
 		} else {
