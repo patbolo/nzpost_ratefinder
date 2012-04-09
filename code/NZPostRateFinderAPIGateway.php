@@ -17,6 +17,9 @@ class NZPostRateFinderAPIGateway implements INZPostRateFinderAPI{
 		foreach (Object::get_static(get_class($rateFinderRequest), 'db') as $fieldName => $fieldType){
 			$queryData[$fieldName] = $rateFinderRequest->{$fieldName};
 		}
+		if ($rateFinderRequest instanceof NZPostRateFinderRequestDomestic){
+			$queryData['postcode_src'] = SiteConfig::current_site_config()->PostOfficePostCode;
+		}
 		$queryData['commit'] = 'Submit';
 		$queryUrl = self::$url . self::$suffix . '?'.http_build_query($queryData);
 		return $queryUrl;
