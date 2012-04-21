@@ -17,10 +17,8 @@ class NZPostRateFinderAPIManager{
 		$client = self::$client;
 		if ($rateFinderRequest instanceof NZPostRateFinderRequestDomestic){
 			$productClass = "NZPostRateFinderProductDomestic";
-			$responseClass = "NZPostRateFinderResponseDomestic";
 		} else {
 			$productClass = "NZPostRateFinderProductIntl";
-			$responseClass = "NZPostRateFinderResponseIntl";
 		}
 		try{
 			$apiResponse = $client->call($rateFinderRequest);
@@ -29,16 +27,16 @@ class NZPostRateFinderAPIManager{
 		}
 		if (isset($apiResponse["status"]) && $apiResponse["status"]== 'success'){
 			$shippingSession = ShippingProductSession::get();
-			$nzpostFinderResponse = new $responseClass();
+			$products = new DataObjectSet();
 			foreach($apiResponse["products"] as $product){
 				$NZPostRateFinderProduct = new $productClass($product);
-				$nzpostFinderResponse->products()->add($NZPostRateFinderProduct);
+				$products->push($NZPostRateFinderProduct);
 				$shippingSession->addShippingProduct($NZPostRateFinderProduct);
 				//TODO Cache results
 			}
 		} else {
 			throw new Exception("An error occured when retrieving data about shipping fees");
 		}
-		return $nzpostFinderResponse;
+		return $products;
 	}
 }
