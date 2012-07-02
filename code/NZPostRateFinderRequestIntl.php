@@ -13,6 +13,22 @@ class NZPostRateFinderRequestIntl extends DataObject implements INZPostRateFinde
 		'format' => 'Enum("json,xml,jsonp,html","json")'
 	);
 	
+	/**
+	 *
+	 * @param type $length in mm
+	 * @param type $height in mm
+	 * @param type $thickness in mm
+	 * @param type $weight in kg
+	 * @param type $countryCode a valid ISO2 country code, ie 'AU' for Australia
+	 */
+	public function __construct($length = 0, $height = 0, $thickness = 0, $weight = 0, $countryCode = ''){
+		$this->length = $length;
+		$this->height = $height;
+		$this->thickness = $thickness;
+		$this->weight = $weight;
+		$this->country_code = $countryCode;
+	}
+	
 	public function requireTable() {
 		return false;
 	}
