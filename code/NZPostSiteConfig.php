@@ -1,15 +1,11 @@
 <?php
-class NZPostSiteConfig extends DataObjectDecorator {
+class NZPostSiteConfig extends DataExtension {
 
-    function extraStatics() {
-        return array(
-            'db' => array(
-				'PostOfficePostCode' => 'Int'
-            )
-        );
-    }
+    static $db = array(
+		'PostOfficePostCode' => 'Int'
+    );
 
-    public function updateCMSFields(FieldSet $fields) {
+    public function updateCMSFields(FieldList $fields) {
         $fields->addFieldToTab("Root.NZPost", new NumericField("PostOfficePostCode", "Post office post code (from where items will be shipped)"));
     }
 }

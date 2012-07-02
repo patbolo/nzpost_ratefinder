@@ -27,7 +27,7 @@ class NZPostRateFinderAPIManager{
 		}
 		if (isset($apiResponse["status"]) && $apiResponse["status"]== 'success'){
 			$shippingSession = ShippingProductSession::get();
-			$products = new DataObjectSet();
+			$products = new ArrayList();
 			foreach($apiResponse["products"] as $product){
 				$NZPostRateFinderProduct = new $productClass($product);
 				$products->push($NZPostRateFinderProduct);
