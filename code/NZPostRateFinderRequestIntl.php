@@ -13,6 +13,8 @@ class NZPostRateFinderRequestIntl extends DataObject implements INZPostRateFinde
 		'format' => 'Enum("json,xml,jsonp,html","json")'
 	);
 	
+	public $class = 'NZPostRateFinderRequestIntl';
+	
 	/**
 	 *
 	 * @param type $length in mm

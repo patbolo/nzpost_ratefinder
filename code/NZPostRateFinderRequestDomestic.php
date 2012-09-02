@@ -20,6 +20,8 @@ class NZPostRateFinderRequestDomestic extends DataObject implements INZPostRateF
 		'format' => 'Enum("json,xml,jsonp,html","json")'
 	);
 	
+	public $class = 'NZPostRateFinderRequestDomestic';
+	
 	/**
 	 *
 	 * @param type $length in mm
@@ -28,12 +30,12 @@ class NZPostRateFinderRequestDomestic extends DataObject implements INZPostRateF
 	 * @param type $weight in kg
 	 * @param type $countryCode a valid pot code in NZ
 	 */
-	public function __construct($length = 0, $height = 0, $thickness = 0, $weight = 0, $postcode_source = 6011){
+	public function __construct($length = 0, $height = 0, $thickness = 0, $weight = 0, $postcode_dest = 6011){
 		$this->length = $length;
 		$this->height = $height;
 		$this->thickness = $thickness;
 		$this->weight = $weight;
-		$this->postcode_source = $postcode_source;
+		$this->postcode_dest = $postcode_dest;
 	}
 	
 	public function requireTable() {
