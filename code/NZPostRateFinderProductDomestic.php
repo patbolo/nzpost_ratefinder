@@ -46,7 +46,7 @@ class NZPostRateFinderProductDomestic extends DataObject implements IShippingPro
 	}
 	
 	public function getDescription(){
-		return $this->service_group_description . ' - ' . $this->speed_description;
+		return $this->getField('description');
 	}
 	
 	public function getPrice(){
