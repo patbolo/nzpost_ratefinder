@@ -16,6 +16,22 @@ You can then use _ss_environment.php to set up your API credentials, or in mysit
 
     NZPostRateFinderAPIGateway::$api_key = '458d1f70-59aa-042e-06b2-000c32c44ac0';
 
+### Filtering the products returned by the API
+You'll probably want to only present a subset of the available products returned by the API.
+For example, you might want to only offer bubble wrapped packaging products, or exclude couriered deliveries
+This can be done in mysite by adding a YML config file in the _config folder. For example:
+
+
+    NZPostRateFinderAPIManager:
+      Services:
+        packaging: flat,   bubble
+        priority: parcel_post_tracked
+
+Possible values:
+- packaging: flat,postage_only,bubble
+- priority: parcel_post_tracked,courier
+Using comma separated values let you filter by multiple packaging or priorities
+
 ## Usage in code
 ### Request
 The API lets you fetch the shipping rates for domestic and international shipping.
