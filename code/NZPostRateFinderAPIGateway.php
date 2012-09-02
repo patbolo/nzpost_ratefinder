@@ -34,7 +34,7 @@ class NZPostRateFinderAPIGateway implements INZPostRateFinderAPI{
 			curl_close($ch);
 		}
 		catch (Exception $e){
-			throw new Exception();
+			throw new Exception($e);
 		}
 		return json_decode($res, true);		
 	}
