@@ -51,7 +51,7 @@ class ShippingProductSession {
 	
 	public function addShippingProduct(IShippingProduct $product){
 		$sessionObj = $this->getSessionObj();
-		$sessionObj['ShippingProduct'][$product->getUID()] = $product;
+		$sessionObj['ShippingProducts'][$product->getUID()] = $product;
 		$this->setSessionObj($sessionObj);
 	}
 }
