@@ -24,6 +24,7 @@ class NZPostRateFinderRequestIntl extends DataObject implements INZPostRateFinde
 	 * @param type $countryCode a valid ISO2 country code, ie 'AU' for Australia
 	 */
 	public function __construct($length = 0, $height = 0, $thickness = 0, $weight = 0, $countryCode = ''){
+		parent::__construct();
 		$this->length = $length;
 		$this->height = $height;
 		$this->thickness = $thickness;

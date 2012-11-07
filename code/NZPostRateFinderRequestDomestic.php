@@ -31,6 +31,7 @@ class NZPostRateFinderRequestDomestic extends DataObject implements INZPostRateF
 	 * @param type $countryCode a valid pot code in NZ
 	 */
 	public function __construct($length = 0, $height = 0, $thickness = 0, $weight = 0, $postcode_dest = 6011){
+		parent::__construct();
 		$this->length = $length;
 		$this->height = $height;
 		$this->thickness = $thickness;

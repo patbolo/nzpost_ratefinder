@@ -51,6 +51,7 @@ You can then use the following
 #### International (to Australia for example)
     $NZPostRateFinderRequest = new NZPostRateFinderRequestIntl(170, 150, 120, 1.5, 'AU');
     $NZPostRateFinderRequest->format = "json";
+	$NZPostRateFinderRequest->format = "2";
 
 ### Response
 To get a list of shipping products in a dropdown field:
